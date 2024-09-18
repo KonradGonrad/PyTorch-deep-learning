@@ -1,21 +1,10 @@
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 
-from get_data import IMAGES_PATH
-
-TRAIN_DIR = IMAGES_PATH / 'train'
-TEST_DIR = IMAGES_PATH / 'test'
-BATCH_SIZE = 1
-
-simple_transform = transforms.Compose([
-    transforms.Resize(size=(64, 64)),
-    transforms.ToTensor()
-])
-
-def prepare_data(transforms: transforms = simple_transform,
-                 train_dir: str = TRAIN_DIR,
-                 test_dir: str = TEST_DIR,
-                 batch_size: int = BATCH_SIZE
+def prepare_data(transforms: transforms,
+                 train_dir: str,
+                 test_dir: str,
+                 batch_size: int
                  ):
   """
     Function that prepares data and transform it into dict of train_data, test_data, train_dataloader, test_dataloader and class_names.
